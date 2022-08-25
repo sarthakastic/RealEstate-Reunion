@@ -4,14 +4,14 @@ import menu from "../images/menu.png"
 
 const Navbar = () => {
   return (
-    <div className="w-full h-16 bg-[#F9F7FC] shadow-md flex justify-between">  
+    <div className="w-full h-16 bg-[#F9F7FC] border-b-2 border-gray-200 flex justify-between">  
     {/* first div / icon */}
       <div className="h-full flex item-center pl-4">
         <div className="h-full flex items-center ">
           <img className="h-14 w-16" src={logo} alt="" />
         </div>
         <div className="h-full flex items-center pl-2  font-extrabold">
-          <p className="text-lg font-serif text-gray-600">Estatery</p>
+          <p className="text-lg font-serif text-gray-600">Estbnvhbjatery</p>
         </div>
       </div>
       {/* second div pages */}
