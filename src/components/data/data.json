@@ -1,13 +1,5 @@
-[
-  {
-    "meta": {
-      "version": "v1.0",
-      "status": 200,
-      "page_number": 1,
-      "count": 42,
-      "total": 6466
-    },
-    "properties": [
+
+     [
       {
         "property_id": "2624438305",
         "list_price": 2195,
@@ -6669,7 +6661,5 @@
           "count": 2
         }
       }
-    ],
-    "schools": null
-  }
-]
+    ]
+  
