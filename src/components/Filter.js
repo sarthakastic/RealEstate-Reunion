@@ -3,21 +3,26 @@ import { useState, useEffect } from "react";
 import fetchData from "../components/data/data.json";
 
 const Filter = ({ setCardData }) => {
-  const [location, setLocation] = useState("");
-  console.log(location);
+  const [price, setPrice] = useState("");
+  
 
   useEffect(() => {
-    setCardData(fetchData);
-    if (location === "") {
+    if (price === "") {
       setCardData(fetchData);
-    } else {
-      setCardData(
-        fetchData.filter(
-          (element) => element.location.address.city === location
-        )
+    } else if (price === "Low to high") {
+      const sortData = [...fetchData].sort((a, b) =>
+        a.list_price < b.list_price ? -1 : 1
       );
+
+      setCardData(sortData);
+    } else if (price === "High to low") {
+      const sortData = [...fetchData].sort((a, b) =>
+        a.list_price > b.list_price ? -1 : 1
+      );
+
+      setCardData(sortData);
     }
-  }, [location, fetchData]);
+  }, [price, fetchData]);
 
   const [bhk, setBhk] = useState("");
 
@@ -27,10 +32,28 @@ const Filter = ({ setCardData }) => {
       setCardData(fetchData);
     } else {
       setCardData(
-        fetchData.filter((element) => element.description.beds == bhk  )
+        fetchData.filter((element) => element.description.beds == bhk 
+        &&  element.location.address.city === location
+         )
       );
     }
   }, [bhk, fetchData]);
+  const [location, setLocation] = useState("");
+  
+
+  useEffect(() => {
+    setCardData(fetchData);
+    if (location === "") {
+      setCardData(fetchData);
+    } else {
+      setCardData(
+        fetchData.filter(
+          (element) =>   element.location.address.city === location
+           
+        )
+      );
+    }
+  }, [location, fetchData]);
 
   const [stories, setStories] = useState("");
 
@@ -40,39 +63,14 @@ const Filter = ({ setCardData }) => {
       setCardData(fetchData);
     } else {
       setCardData(
-        fetchData.filter(
-          (element) =>
-            element.description.stories == stories &&
-            element.location.address.city === location
+        fetchData.filter((element) => element.description.stories == stories && element.location.address.city===location
+        
+     
         )
       );
     }
   }, [stories, fetchData]);
 
-  const [price,setPrice]= useState("");
-  console.log(location);
-
-  useEffect(() => {
-    if (price === "") {
-      setCardData(fetchData);
-    } else if (price === "Low to high") {
-      const sortData = [...fetchData].sort((a, b) =>
-        a.list_price < b.list_price ? -1 : 1
-      );
-      
-      setCardData(sortData);
-    }
-    else if (price === "High to low") {
-      const sortData = [...fetchData].sort((a, b) =>
-        a.list_price > b.list_price ? -1 : 1
-      );
-      
-      setCardData(sortData);
-    }
-   
-  }, [price, fetchData]);
-
-  
   return (
     <div className=" flex justify-around items-center md:h-24 mb-8 bg-white flex-wrap flex-col gap-4 p-8">
       <div className="w-24">
@@ -87,13 +85,17 @@ const Filter = ({ setCardData }) => {
               className="dropdown-content menu shadow bg-gray-100 rounded-box w-44 text-[#7067E7]"
             >
               <li>
-                <button onClick={()=>setPrice("")}>Remove Filter</button>
+                <button onClick={() => setPrice("")}>Remove Filter</button>
               </li>
               <li>
-                <button onClick={()=>setPrice("Low to high")}>Low to High</button>
+                <button onClick={() => setPrice("Low to high")}>
+                  Low to High
+                </button>
               </li>
               <li>
-                <button onClick={()=>setPrice("High to low")}>High to Low</button>
+                <button onClick={() => setPrice("High to low")}>
+                  High to Low
+                </button>
               </li>
             </ul>
           </div>
@@ -110,24 +112,23 @@ const Filter = ({ setCardData }) => {
               tabindex="0"
               className="dropdown-content menu p-2 shadow bg-gray-100 rounded-box w-44 text-[#7067E7]"
             >
-              
               <li>
-                <button onClick={()=>setBhk("")}>Remove Filter</button>
+                <button onClick={() => setBhk("")}>Remove Filter</button>
               </li>
               <li>
-                <button onClick={()=>setBhk("1")}>1</button>
+                <button onClick={() => setBhk("1")}>1</button>
               </li>
               <li>
-                <button onClick={()=>setBhk("2")}>2</button>
+                <button onClick={() => setBhk("2")}>2</button>
               </li>
               <li>
-                <button onClick={()=>setBhk("3")}>3</button>
+                <button onClick={() => setBhk("3")}>3</button>
               </li>
               <li>
-                <button onClick={()=>setBhk("4")}>4</button>
+                <button onClick={() => setBhk("4")}>4</button>
               </li>
               <li>
-                <button onClick={()=>setBhk("5")}>5</button>
+                <button onClick={() => setBhk("5")}>5</button>
               </li>
             </ul>
           </div>
@@ -136,7 +137,7 @@ const Filter = ({ setCardData }) => {
       <div className="w-24">
         <div className="flex flex-col justify-center items-center">
           <p className="text-sm text-gray-400 ">Location</p>
-          <div className="dropdown" >
+          <div className="dropdown">
             <label tabindex="0" className="text-[#7067E7]">
               Select
             </label>
