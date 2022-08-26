@@ -27,8 +27,7 @@ const Filter = ({ setCardData }) => {
       setCardData(fetchData);
     } else {
       setCardData(
-        fetchData.filter((element) => element.description.beds == bhk  &&
-        element.location.address.city === location)
+        fetchData.filter((element) => element.description.beds == bhk  )
       );
     }
   }, [bhk, fetchData]);
