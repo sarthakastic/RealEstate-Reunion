@@ -8,11 +8,11 @@ const Cards = () => {
   const [cardData, setCardData] = useState(fetchData);
   return (
     <>
-      <Filter setCardData={setCardData} />
+      <Filter setCardData={setCardData} cardData={cardData} />
       <div className=" flex w-full  flex-wrap justify-center  lg:justify-between gap-4 md:justify-center overflow-y-hidden ">
         {cardData.map((data, id) => (
             <div
-              className="h-[430px] w-[380px]  bg-gray-200 rounded-xl"
+              className="h-[430px] w-[350px]  bg-gray-200 rounded-xl"
               key={id}
             >
               <div className="">
