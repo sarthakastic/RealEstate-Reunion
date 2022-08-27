@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../images/logo.svg";
 import menu from "../images/menu.png"
+import { Menu } from "../components/helper/Context"
 
-const Navbar = () => {
+const Navbar = (mobilemenu) => {
+
+  const {mobileView,setMobileView}= useContext(Menu)
+
   return (
-    <div className="w-full h-16 bg-[#F9F7FC] border-b-2 border-gray-200 flex justify-between">  
+    <div className={`w-full h-16 bg-[#F9F7FC] border-b-2 border-gray-200 ${mobileView?"hidden":"flex"} justify-between  `}>  
     {/* first div / icon */}
       <div className="h-full flex item-center pl-4">
         <div className="h-full flex items-center ">
           <img className="h-14 w-16" src={logo} alt="" />
         </div>
         <div className="h-full flex items-center pl-2  font-extrabold">
-          <p className="text-lg font-serif text-gray-600">Estbnvhbjatery</p>
+          <p className="text-lg font-serif text-gray-600">Estatery</p>
         </div>
       </div>
       {/* second div pages */}
@@ -48,7 +52,7 @@ const Navbar = () => {
             <button>Sign Up</button> 
           </div>
           <div className="p-2 md:hidden flex">
-            <button ><img className="h-10" src={menu} alt="" /></button> 
+            <button onClick={()=>{setMobileView(true)}} ><img className="h-10 " src={menu} alt="" /></button> 
           </div>
         </div>
       </div>

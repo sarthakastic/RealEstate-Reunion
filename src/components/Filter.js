@@ -71,17 +71,21 @@ const Filter = ({ setCardData }) => {
     }
   }, [stories, fetchData]);
 
+  console.log(location)
+  console.log(bhk)
+  console.log(stories)
+
   return (
     <div className=" flex justify-around items-center md:h-24 mb-8 bg-white flex-wrap flex-col gap-4 p-8">
       <div className="w-24">
         <div className="flex flex-col justify-center items-center">
           <p className="text-sm text-gray-400">Price</p>
           <div className="dropdown ">
-            <label tabindex="0" className="text-[#7067E7]">
+            <label tabIndex="0" className="text-[#7067E7]">
               Select
             </label>
             <ul
-              tabindex="0"
+              tabIndex="0"
               className="dropdown-content menu shadow bg-gray-100 rounded-box w-44 text-[#7067E7]"
             >
               <li>
@@ -105,11 +109,11 @@ const Filter = ({ setCardData }) => {
         <div className="flex flex-col justify-center items-center">
           <p className="text-sm text-gray-400 ">BHK</p>
           <div className="dropdown ">
-            <label tabindex="0" className="text-[#7067E7]">
+            <label tabIndex="0" className="text-[#7067E7]">
               Select
             </label>
             <ul
-              tabindex="0"
+              tabIndex="0"
               className="dropdown-content menu p-2 shadow bg-gray-100 rounded-box w-44 text-[#7067E7]"
             >
               <li>
@@ -138,11 +142,11 @@ const Filter = ({ setCardData }) => {
         <div className="flex flex-col justify-center items-center">
           <p className="text-sm text-gray-400 ">Location</p>
           <div className="dropdown">
-            <label tabindex="0" className="text-[#7067E7]">
+            <label tabIndex="0" className="text-[#7067E7]">
               Select
             </label>
             <ul
-              tabindex="0"
+              tabIndex="0"
               className="dropdown-content menu p-2 shadow bg-gray-100 rounded-box w-44 text-[#7067E7]"
             >
               <li>
@@ -192,11 +196,11 @@ const Filter = ({ setCardData }) => {
         <div className="flex flex-col justify-center items-center">
           <p className="text-sm text-gray-400 ">Stories</p>
           <div className="dropdown ">
-            <label tabindex="0" className="text-[#7067E7]">
+            <label tabIndex="0" className="text-[#7067E7]">
               Select
             </label>
             <ul
-              tabindex="0"
+              tabIndex="0"
               className="dropdown-content menu p-2 shadow bg-gray-100 rounded-box w-44 text-[#7067E7]"
             >
               <li>
