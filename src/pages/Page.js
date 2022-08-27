@@ -14,8 +14,9 @@ const Page = () => {
     <Menu.Provider value={{mobileView, setMobileView}}>
     <Navbar />
     <MobileMenu />
-    </Menu.Provider>
     <Screen/>
+    </Menu.Provider>
+    
     </>
   )
 }

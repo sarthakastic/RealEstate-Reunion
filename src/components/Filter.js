@@ -33,7 +33,7 @@ const Filter = ({ setCardData }) => {
     } else {
       setCardData(
         fetchData.filter((element) => element.description.beds == bhk 
-        &&  element.location.address.city === location
+        
          )
       );
     }
@@ -63,7 +63,7 @@ const Filter = ({ setCardData }) => {
       setCardData(fetchData);
     } else {
       setCardData(
-        fetchData.filter((element) => element.description.stories == stories && element.location.address.city===location
+        fetchData.filter((element) => element.description.stories == stories 
         
      
         )

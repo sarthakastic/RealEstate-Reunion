@@ -20,11 +20,16 @@ const MobileMenu = () => {
             <div>Rent</div>
             <div>Sell</div>
             <div>Buy</div>
-            <div>Market Place</div>
+            <div>Manage Property</div>
+            <div>Resources</div>
         </div>
         <div className='flex flex-col justify-center items-center pb-16 gap-8 text-slate-600 font-semibold'>
-            <div>log in</div>
-            <div>Sign up</div>
+        <div className="p-2 border-2  border-[#7165E5] rounded-md">
+            <button >Log in</button>
+          </div>
+            <div className="p-2  bg-[#7165E5] border-2 rounded-md text-white">
+            <button>Sign Up</button> 
+          </div>
         </div>
 
     </div>

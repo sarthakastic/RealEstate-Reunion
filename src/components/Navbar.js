@@ -3,7 +3,7 @@ import logo from "../images/logo.svg";
 import menu from "../images/menu.png"
 import { Menu } from "../components/helper/Context"
 
-const Navbar = (mobilemenu) => {
+const Navbar = () => {
 
   const {mobileView,setMobileView}= useContext(Menu)
 
