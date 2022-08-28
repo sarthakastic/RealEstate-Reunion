@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import logo from "../images/logo.svg";
 import menu from "../images/menu.png"
 import { Menu } from "../components/helper/Context"
+import { Type } from "../components/helper/Context"
 
 const Navbar = () => {
 
   const {mobileView,setMobileView}= useContext(Menu)
+  const {type,setType} = useContext(Type)
 
   return (
     <div className={`w-full h-16 bg-[#F9F7FC] border-b-2 border-gray-200 ${mobileView?"hidden":"flex"} justify-between  `}>  
@@ -21,13 +23,13 @@ const Navbar = () => {
       {/* second div pages */}
       <div className="h-full md:flex hidden item-center gap-4 md:text-sm">
         <div className="h-full flex items-center pl-2  font-extrabold">
-          <p className=" font-serif text-gray-600">Rent</p>
+          <button onClick={()=>setType("rent")} className={` font-serif text-gray-600 ${(type==="rent"?"bg-purple-400 p-1":"")}  `}>Rent</button>
         </div>
         <div className="h-full flex  items-center pl-2  font-extrabold">
-          <p className=" font-serif text-gray-600">Buy</p>
+          <button onClick={()=>setType("buy")} className={` font-serif text-gray-600  ${(type==="buy"?"bg-purple-400 p-1":"")} `}>Buy</button>
         </div>
         <div className="h-full flex items-center pl-2  font-extrabold">
-          <p className=" font-serif text-gray-600">Sell</p>
+          <button onClick={()=>setType("sell")} className={` font-serif text-gray-600  ${(type==="sell"?"bg-purple-400 p-1":"")} `}>Sell</button>
         </div>
         <div className="h-full flex items-center pl-2  font-extrabold">
           <div className="h-[18px] flex items-center  font-serif text-gray-600 gap-1">
