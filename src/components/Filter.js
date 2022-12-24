@@ -4,7 +4,6 @@ import fetchData from "../components/data/data.json";
 
 const Filter = ({ setCardData }) => {
   const [price, setPrice] = useState("");
-  
 
   useEffect(() => {
     if (price === "") {
@@ -32,14 +31,11 @@ const Filter = ({ setCardData }) => {
       setCardData(fetchData);
     } else {
       setCardData(
-        fetchData.filter((element) => element.description.beds == bhk 
-        
-         )
+        fetchData.filter((element) => element.description.beds == bhk)
       );
     }
   }, [bhk, fetchData]);
   const [location, setLocation] = useState("");
-  
 
   useEffect(() => {
     setCardData(fetchData);
@@ -48,8 +44,7 @@ const Filter = ({ setCardData }) => {
     } else {
       setCardData(
         fetchData.filter(
-          (element) =>   element.location.address.city === location
-           
+          (element) => element.location.address.city === location
         )
       );
     }
@@ -63,17 +58,14 @@ const Filter = ({ setCardData }) => {
       setCardData(fetchData);
     } else {
       setCardData(
-        fetchData.filter((element) => element.description.stories == stories 
-        
-     
-        )
+        fetchData.filter((element) => element.description.stories == stories)
       );
     }
   }, [stories, fetchData]);
 
-  console.log(location)
-  console.log(bhk)
-  console.log(stories)
+  console.log(location);
+  console.log(bhk);
+  console.log(stories);
 
   return (
     <div className=" flex justify-around items-center md:h-24 mb-8 bg-white flex-wrap flex-col gap-4 p-8">
@@ -82,7 +74,7 @@ const Filter = ({ setCardData }) => {
           <p className="text-sm text-gray-400">Price</p>
           <div className="dropdown ">
             <label tabIndex="0" className="text-[#7067E7]">
-              Select
+              {price === "" ? "Select" : price}
             </label>
             <ul
               tabIndex="0"
@@ -110,7 +102,7 @@ const Filter = ({ setCardData }) => {
           <p className="text-sm text-gray-400 ">BHK</p>
           <div className="dropdown ">
             <label tabIndex="0" className="text-[#7067E7]">
-              Select
+              {bhk === "" ? "Select" : bhk}
             </label>
             <ul
               tabIndex="0"
@@ -143,7 +135,7 @@ const Filter = ({ setCardData }) => {
           <p className="text-sm text-gray-400 ">Location</p>
           <div className="dropdown">
             <label tabIndex="0" className="text-[#7067E7]">
-              Select
+              {location === "" ? "Select" : location}
             </label>
             <ul
               tabIndex="0"
@@ -197,7 +189,7 @@ const Filter = ({ setCardData }) => {
           <p className="text-sm text-gray-400 ">Stories</p>
           <div className="dropdown ">
             <label tabIndex="0" className="text-[#7067E7]">
-              Select
+              {stories === "" ? "Select" : stories}
             </label>
             <ul
               tabIndex="0"

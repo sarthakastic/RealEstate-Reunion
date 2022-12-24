@@ -4,43 +4,47 @@ import heart from "../../images/heart.svg";
 import { useState } from "react";
 import Filter from "../Filter";
 
-
 const Cards = () => {
   const [cardData, setCardData] = useState(fetchData);
-  
-  const [search,setSearch] = useState("")
-  
 
-
-  
-
-
+  const [search, setSearch] = useState("");
 
   return (
     <>
-    <div className='flex md:flex-row flex-col md:justify-between gap-4 justify-center items-center h-32'>
-        <div><p   className='font-bold md:text-[32px] text-[24px]'>Search Properties to Rent</p></div>
-        <div> <input value={search} onChange={(e)=> setSearch(e.target.value)} className='border border-gray-400 p-2' type="text" placeholder='Search for City || BHK' /></div>
-    </div>
-    
+      <div className="flex md:flex-row flex-col md:justify-between gap-4 justify-center items-center h-32">
+        <div>
+          <p className="font-bold md:text-[32px] text-[24px]">
+            Search Properties to Rent
+          </p>
+        </div>
+        <div>
+          {" "}
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="border border-gray-400 p-2"
+            type="text"
+            placeholder="Search for City || BHK"
+          />
+        </div>
+      </div>
+
       <Filter setCardData={setCardData} cardData={cardData} />
       <div className=" flex w-full  flex-wrap justify-center  lg:justify-between gap-4 md:justify-center overflow-y-hidden ">
         {cardData
-              .filter((value) => {
-                if (search === "") {
-                  return value;
-                } else {
-                  return (
-                    value.location.address.city
-                      .toLowerCase()
-                      .includes(search.toLowerCase())
-                     ||
-                    value.description.beds.toString()
-                      .includes(search) 
-                      
-                  );
-                }
-              }).map((data, id) => (
+          .filter((value) => {
+            if (search === "") {
+              return value;
+            } else {
+              return (
+                value.location.address.city
+                  .toLowerCase()
+                  .includes(search.toLowerCase()) ||
+                value.description.beds.toString().includes(search)
+              );
+            }
+          })
+          .map((data, id) => (
             <div
               className="h-[430px] w-[350px]  bg-gray-200 rounded-xl"
               key={id}
@@ -87,8 +91,7 @@ const Cards = () => {
                 </div>
               </div>
             </div>
-          ))
-        }
+          ))}
       </div>
     </>
   );
